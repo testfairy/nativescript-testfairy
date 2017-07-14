@@ -1,0 +1,6 @@
+framework module TestFairySDK {
+  umbrella header "TestFairySDK.h"
+
+  export *
+  module * { export * }
+}
