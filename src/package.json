@@ -1,7 +1,7 @@
 {
     "name": "nativescript-testfairy",
     "version": "1.0.0",
-    "description": "Your awesome NativeScript plugin.",
+    "description": "TestFairy is a powerful beta-testing platform for mobile applications.",
     "main": "testfairy",
     "typings": "index.d.ts",
     "nativescript": {
@@ -23,20 +23,21 @@
         "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link"
     },
     "keywords": [
+        "TestFairy",
         "NativeScript",
         "JavaScript",
         "Android",
         "iOS"
     ],
     "author": {
-        "name": "Your Name",
-        "email": "youremail@yourdomain.com"
+        "name": "TestFairy",
+        "email": "support@testfairy.com"
     },
     "bugs": {
         "url": "https://github.com/testfairy/nativescript-testfairy/issues"
     },
     "license": "Apache-2.0",
-    "homepage": "https://github.com/testfairy/nativescript-testfairy",
+    "homepage": "https://www.testfairy.com",
     "readmeFilename": "README.md",
     "peerDependencies": {
         "tns-core-modules": "^3.0.0"

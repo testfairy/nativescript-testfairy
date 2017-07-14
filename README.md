@@ -1,40 +1,21 @@
-# Your Plugin Name
+# TestFairy plugin for Nativescript
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
+For class reference, installation and more information, please visit 
+[Nativescript integration document](http://docs.testfairy.com/Platforms/Nativescript.html) on TestFairy.
 
-Then describe what's the purpose of your plugin. 
+License
+=======
 
-In case you develop UI plugin, this is where you can add some screenshots.
+    Copyright 2017 TestFairy.
 
-## (Optional) Prerequisites / Requirements
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+       http://www.apache.org/licenses/LICENSE-2.0
 
-## Installation
-
-Describe your plugin installation steps. Ideally it would be something like:
-
-```javascript
-tns plugin add <your-plugin-name>
-```
-
-## Usage 
-
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
-	
-	```javascript
-    Usage code snippets here
-    ```)
-
-## API
-
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
-    
-| Property | Default | Description |
-| --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
-    
-## License
-
-Apache License Version 2.0, January 2004
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
