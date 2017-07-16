@@ -53,7 +53,7 @@ class TestFairyIos implements TestFairyApi {
   }
 
   public setAttribute(key: string, value: string): boolean {
-	return TestFairy.setAttribute(key, value);
+	return TestFairy.setAttributeWithValue(key, value);
   }
 
   public setUserId(userId: string): void {
