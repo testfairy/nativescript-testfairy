@@ -17,7 +17,8 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
   public hideView(view: any): void {
-  	com.testfairy.TestFairy.hideView(view);
+  	var hidden = view.android == null ? view : view.android;
+  	com.testfairy.TestFairy.hideView(hidden);
   }
 
   public setServerEndpoint(endpoint: string): void {

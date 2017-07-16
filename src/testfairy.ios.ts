@@ -17,7 +17,8 @@ class TestFairyIos implements TestFairyApi {
   }
 
   public hideView(view: any): void {
-	TestFairy.hideView(view);
+  	var hidden = view.ios == null ? view : view.ios;
+	TestFairy.hideView(hidden);
   }
 
   public setServerEndpoint(endpoint: string): void {

@@ -1,5 +1,6 @@
 import { Observable } from 'tns-core-modules/data/observable';
 import { TestFairySDK } from 'nativescript-testfairy';
+import * as application from 'tns-core-modules/application';
 
 class DataItem {
     constructor(public name: string) { }
@@ -18,12 +19,14 @@ export class HelloWorldModel extends Observable {
     	new DataItem("pause"),
     	new DataItem("resume"),
     	new DataItem("stop"),
+    	new DataItem("hideView"),
     ];
   }
 
   public onTap(args) {
 	var itemIndex = args.index;
-	console.log("Index: " + itemIndex);
+	console.log("index " + itemIndex);
+
 	if (itemIndex == 0) {
 		// TestFairySDK.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
 	} else if (itemIndex == 1) {
@@ -36,8 +39,13 @@ export class HelloWorldModel extends Observable {
 		TestFairySDK.pause();
 	} else if (itemIndex == 5) {
 		TestFairySDK.resume();
-	} else {
+	} else if (itemIndex == 6) {
 		TestFairySDK.stop();
+	} else if (itemIndex == 7) {
+		var page = args.object;
+  		TestFairySDK.hideView(page);
+	} else {
+		console.log("unsupported index " + itemIndex);
 	}
   }
 }
