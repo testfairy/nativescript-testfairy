@@ -9,28 +9,28 @@ class TestFairyIos implements TestFairyApi {
   }
 
   public getSessionUrl(): string {
-	return TestFairy.sessionUrl();
+	  return TestFairy.sessionUrl();
   }
 
   public getVersion(): string {
-	return TestFairy.version();
+	  return TestFairy.version();
   }
 
   public hideView(view: any): void {
   	var hidden = view.ios == null ? view : view.ios;
-	TestFairy.hideView(hidden);
+	  TestFairy.hideView(hidden);
   }
 
   public setServerEndpoint(endpoint: string): void {
-	TestFairy.setServerEndpoint(endpoint);
+	  TestFairy.setServerEndpoint(endpoint);
   }
 
   public sendUserFeedback(feedback: string): void {
-	TestFairy.sendUserFeedback(feedback);
+	  TestFairy.sendUserFeedback(feedback);
   }
 
   public pushFeedbackController(): void {
-	TestFairy.pushFeedbackController();
+	  TestFairy.pushFeedbackController();
   }
 
   public addEvent(name: string): void {
@@ -46,23 +46,23 @@ class TestFairyIos implements TestFairyApi {
   }
 
   public pause(): void {
-	TestFairy.pause();
+	  TestFairy.pause();
   }
 
   public stop(): void {
-	TestFairy.stop();
+	  TestFairy.stop();
   }
 
   public setAttribute(key: string, value: string): boolean {
-	return TestFairy.setAttributeWithValue(key, value);
+	  return TestFairy.setAttributeWithValue(key, value);
   }
 
   public setUserId(userId: string): void {
-	TestFairy.setUserId(userId);
+	  TestFairy.setUserId(userId);
   }
 
   public log(message: string): void  {
-  	// Not supported
+    TestFairy.log(message);
   }
 }
 
