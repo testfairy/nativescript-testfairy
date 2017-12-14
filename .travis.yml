@@ -1,33 +1,19 @@
-matrix:
-  include:
-    - os: linux
-      language: android
-      jdk: oraclejdk8
-      before_script:
-        - echo no | android create avd --force -n test -t android-21 -b armeabi-v7a
-        - emulator -avd test -no-audio -no-window &
-        - android-wait-for-emulator
-      before_install:
-        - nvm install 6
-      script: npm run test.android
-    - os: osx
-      language: node_js
-      node_js: "6"
-      jdk: oraclejdk8
-      osx_image: xcode8.3
-      script: npm run test.ios
-
-android:
-  components:
-    - tools
-    - platform-tools
-    - build-tools-23.0.2
-    - android-23
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-android-21
-
-install:
-    - npm install -g nativescript
-    - tns usage-reporting disable
-    - tns error-reporting disable
-    - cd src
+language: objective-c
+node_js: '6'
+before_deploy:
+- brew install carthage
+- carthage update
+- rm -rf src/platforms/ios/TestFairySDK.*
+- cp -R Carthage/Build/iOS/TestFairySDK.framework* src/platforms/ios/.
+- cd publish
+- ./pack.sh
+- cd package
+deploy:
+  provider: npm
+  email: support@testfairy.com
+  api_key:
+    secure: kFSTKPnOBUXUCSBmp+cA0s6VLLUVi/3vH7qdGBw3aFwIPJavHuXP+ZrJsd8VAdCfzs4t5Zm5njS41eSPBm9ezZoXaBlQO2pO5WDS1rfp0zzJsbWDJHNl3yHiQP031VyoUQcjVLaxXCxL9XvTTTi8uAQRf3yYq3TH2r5H7Uy7aTvEP6J4lSVIuTn5/SswqFmtHqlhDOR2DevNnHVV9tdz//6L7VlecyaM2d/bbzyY8/U9Z5rjv0yt71vxzX/d3KBhucFv65pDgHk+oT40YPJd2xlKwdrmWZBGmi90vlI9f65gLHwwa99z+NN3b7B1cmK8dEHcQ4s+KzexyM+KVGY0jCc7TbSN7ibNIxW4EMB0/mmmXxPpl74gN94q760epIygI5JtANU5r+qaC/jt6v3BCJH9o2JeSX3skXFad/UU25kIUIFRrH30TML6QvJutGRe+8dbQ+sn3ZkZbliCZyQ6ql0TJK6wvse4BgJgJpX4PetKhGtGVHckiOVJxCvfMRzG83Q0dbLSl6d6u1kQCUuUB0UMAvSue4OlzzSN+wWhLtkE6mr4NQJTgR8F1rsyMlSTHy0OSGveR2Rv+CEUtIJhFB/6Yk/GHdvfK6BXjCbuBGb9u2sSj9kUeX0eXzbrz7wIrRqaW9IBISeqVc+FOKfCovzpJA6+xC+4J+Nyqj8FbCQ=
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: testfairy/nativescript-testfairy
