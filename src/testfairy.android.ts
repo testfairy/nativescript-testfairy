@@ -30,7 +30,7 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
   public pushFeedbackController(): void {
-  	// not supported
+  	com.testfairy.TestFairy.showFeedbackForm();
   }
 
   public addEvent(name: string): void {
