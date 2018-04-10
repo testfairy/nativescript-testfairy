@@ -1,5 +1,5 @@
 language: objective-c
-node_js: '6'
+node_js: '6' 
 before_deploy:
 - brew install carthage
 - carthage update
