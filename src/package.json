@@ -1,6 +1,6 @@
 {
     "name": "nativescript-testfairy",
-    "version": "1.5.1",
+    "version": "1.7.0",
     "description": "TestFairy is a powerful beta-testing platform for mobile applications.",
     "main": "testfairy",
     "typings": "index.d.ts",
