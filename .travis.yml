@@ -1,13 +1,14 @@
 language: objective-c
 node_js: '6' 
 before_deploy:
-- brew install carthage
-- carthage update
-- rm -rf src/platforms/ios/TestFairySDK.*
-- cp -R Carthage/Build/iOS/TestFairySDK.framework* src/platforms/ios/.
-- cd publish
-- ./pack.sh
-- cd package
+  - npm install -g yarn
+  - brew install carthage
+  - carthage update
+  - rm -rf src/platforms/ios/TestFairySDK.*
+  - cp -R Carthage/Build/iOS/TestFairySDK.framework* src/platforms/ios/.
+  - cd publish
+  - ./pack.sh
+  - cd package
 deploy:
   provider: npm
   email: support@testfairy.com
