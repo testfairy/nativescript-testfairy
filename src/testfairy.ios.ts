@@ -64,6 +64,42 @@ class TestFairyIos implements TestFairyApi {
   public log(message: string): void  {
     TestFairy.log(message);
   }
+
+	public enableCrashHandler(): void {
+		TestFairy.enableCrashHandler();
+	}
+
+	public disableCrashHandler(): void {
+		TestFairy.disableCrashHandler();
+	}
+
+	public enableMetric(metric: string): void {
+		TestFairy.enableMetric();
+	}
+
+	public disableMetric(metric: string): void {
+		TestFairy.disableMetric();
+	}
+
+	public enableVideo(policy: string, quality: string, framesPerSecond: number): void {
+		TestFairy.enableVideo();
+	}
+
+	public disableVideo(): void {
+		TestFairy.disableVideo();
+	}
+
+	public enableFeedbackForm(method: string): void {
+		TestFairy.enableFeedbackForm();
+	}
+
+	public disableFeedbackForm(): void {
+		TestFairy.disableFeedbackForm();
+	}
+
+	public setMaxSessionLength(seconds: number): void {
+		TestFairy.setMaxSessionLength(seconds);
+	}
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyIos);

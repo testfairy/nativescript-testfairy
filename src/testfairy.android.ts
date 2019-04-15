@@ -64,6 +64,42 @@ class TestFairyAndroid implements TestFairyApi {
   public log(message: string): void  {
 	com.testfairy.TestFairy.log("NativescriptTestFairy", message);
   }
+
+	public enableCrashHandler(): void {
+		com.testfairy.TestFairy.enableCrashHandler();
+	}
+
+	public disableCrashHandler(): void {
+		com.testfairy.TestFairy.disableCrashHandler();
+	}
+
+	public enableMetric(metric: string): void {
+		com.testfairy.TestFairy.enableMetric();
+	}
+
+	public disableMetric(metric: string): void {
+		com.testfairy.TestFairy.disableMetric();
+	}
+
+	public enableVideo(policy: string, quality: string, framesPerSecond: number): void {
+		com.testfairy.TestFairy.enableVideo();
+	}
+
+	public disableVideo(): void {
+		com.testfairy.TestFairy.disableVideo();
+	}
+
+	public enableFeedbackForm(method: string): void {
+		com.testfairy.TestFairy.enableFeedbackForm();
+	}
+
+	public disableFeedbackForm(): void {
+		com.testfairy.TestFairy.disableFeedbackForm();
+	}
+
+	public setMaxSessionLength(seconds: number): void {
+		com.testfairy.TestFairy.setMaxSessionLength(seconds);
+	}
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyAndroid);
