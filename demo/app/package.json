@@ -26,9 +26,10 @@
   },
   "homepage": "https://www.testfairy.com",
   "android": {
-    "v8Flags": "--expose_gc"
+    "v8Flags": "--expose_gc",
+    "requireModules": ["nativescript-testfairy"]
   },
   "devDependencies": {
-    "nativescript-dev-typescript": "^0.3.0"
-  }
+    "nativescript-dev-typescript": "~0.9.0"
+  },
 }
