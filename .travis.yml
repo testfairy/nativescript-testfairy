@@ -9,6 +9,7 @@ before_deploy:
   - cd publish
   - ./pack.sh
   - cd package
+after_script: sleep 5
 deploy:
   provider: npm
   email: support@testfairy.com
