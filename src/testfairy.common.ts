@@ -126,78 +126,78 @@ export interface TestFairyApi {
    */
   log(message: string): void;
 
-	/**
-	 * Enables the ability to capture crashes. TestFairy
-	 * crash handler is installed by default. Once installed
-	 * it cannot be uninstalled. Must be called before begin.
-	 */
-	enableCrashHandler(): void;
+  /**
+   * Enables the ability to capture crashes. TestFairy
+   * crash handler is installed by default. Once installed
+   * it cannot be uninstalled. Must be called before begin.
+   */
+  enableCrashHandler(): void;
 
-	/**
-	 * Disables the ability to capture crashes. TestFairy
-	 * crash handler is installed by default. Once installed
-	 * it cannot be uninstalled. Must be called before begin.
-	 */
-	disableCrashHandler(): void;
+  /**
+   * Disables the ability to capture crashes. TestFairy
+   * crash handler is installed by default. Once installed
+   * it cannot be uninstalled. Must be called before begin.
+   */
+  disableCrashHandler(): void;
 
-	/**
-	 * Enables recording of a metric regardless of build settings.
-	 * Valid values include 'cpu', 'memory', 'logcat', 'battery', 'network-requests'
-	 * A metric cannot be enabled and disabled at the same time, therefore
-	 * if a metric is also disabled, the last call to enable to disable wins.
-	 * Must be called be before begin.
-	 */
-	enableMetric(metric: string): void;
+  /**
+   * Enables recording of a metric regardless of build settings.
+   * Valid values include 'cpu', 'memory', 'logcat', 'battery', 'network-requests'
+   * A metric cannot be enabled and disabled at the same time, therefore
+   * if a metric is also disabled, the last call to enable to disable wins.
+   * Must be called be before begin.
+   */
+  enableMetric(metric: string): void;
 
-	/**
-	 * Disables recording of a metric regardless of build settings.
-	 * Valid values include "cpu", "memory", "logcat", "battery", "network-requests"
-	 * A metric cannot be enabled and disabled at the same time, therefore
-	 * if a metric is also disabled, the last call to enable to disable wins.
-	 * Must be called be before begin.
-	 */
-	disableMetric(metric: string): void;
+  /**
+   * Disables recording of a metric regardless of build settings.
+   * Valid values include "cpu", "memory", "logcat", "battery", "network-requests"
+   * A metric cannot be enabled and disabled at the same time, therefore
+   * if a metric is also disabled, the last call to enable to disable wins.
+   * Must be called be before begin.
+   */
+  disableMetric(metric: string): void;
 
-	/**
-	 * Enables the ability to capture video recording regardless of build settings.
-	 * Valid values for policy include "always", "wifi" and "none"
-	 * Valid values for quality include "high", "low", "medium"
-	 * Values for fps must be between 0.1 and 2.0. Value will be rounded to
-	 * the nearest frame.
-	 */
-	enableVideo(policy: string, quality: string, framesPerSecond: number): void;
+  /**
+   * Enables the ability to capture video recording regardless of build settings.
+   * Valid values for policy include "always", "wifi" and "none"
+   * Valid values for quality include "high", "low", "medium"
+   * Values for fps must be between 0.1 and 2.0. Value will be rounded to
+   * the nearest frame.
+   */
+  enableVideo(policy: string, quality: string, framesPerSecond: number): void;
 
-	/**
-	 * Disables the ability to capture video recording. Must be
-	 * called before begin.
-	 */
-	disableVideo(): void;
+  /**
+   * Disables the ability to capture video recording. Must be
+   * called before begin.
+   */
+  disableVideo(): void;
 
-	/**
-	 * Enables the ability to present the feedback form
-	 * based on the method given. Valid values only include
-	 * "shake". If an unrecognized method is passed,
-	 * the value defined in the build settings will be
-	 * used. Must be called before begin.
-	 */
-	enableFeedbackForm(method: string): void;
+  /**
+   * Enables the ability to present the feedback form
+   * based on the method given. Valid values only include
+   * "shake". If an unrecognized method is passed,
+   * the value defined in the build settings will be
+   * used. Must be called before begin.
+   */
+  enableFeedbackForm(method: string): void;
 
-	/**
-	 * Disables the ability to present users with feedback when
-	 * devices is shaken, or if a screenshot is taken. Must be called
-	 * before begin.
-	 */
-	disableFeedbackForm(): void;
+  /**
+   * Disables the ability to present users with feedback when
+   * devices is shaken, or if a screenshot is taken. Must be called
+   * before begin.
+   */
+  disableFeedbackForm(): void;
 
-	/**
-	 * Sets the maximum recording time. Minimum value is 60 seconds,
-	 * else the value defined in the build settings will be used. The
-	 * maximum value is the lowest value between this value and the
-	 * value defined in the build settings.
-	 * Time is rounded to the nearest minute.
-	 * Must be called before begin.
-	 */
-	setMaxSessionLength(seconds: number);
+  /**
+   * Sets the maximum recording time. Minimum value is 60 seconds,
+   * else the value defined in the build settings will be used. The
+   * maximum value is the lowest value between this value and the
+   * value defined in the build settings.
+   * Time is rounded to the nearest minute.
+   * Must be called before begin.
+   */
+  setMaxSessionLength(seconds: number);
 }
 
 export function getInstance(T: new () => TestFairyApi): TestFairyApi {

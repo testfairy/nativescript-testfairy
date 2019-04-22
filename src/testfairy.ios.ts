@@ -5,101 +5,101 @@ declare var TestFairy: any;
 
 class TestFairyIos implements TestFairyApi {
   public begin(appToken: string): void {
-  	TestFairy.begin(appToken);
+    TestFairy.begin(appToken);
   }
 
   public getSessionUrl(): string {
-	  return TestFairy.sessionUrl();
+    return TestFairy.sessionUrl();
   }
 
   public getVersion(): string {
-	  return TestFairy.version();
+    return TestFairy.version();
   }
 
   public hideView(view: any): void {
-  	var hidden = view.ios == null ? view : view.ios;
-	  TestFairy.hideView(hidden);
+    let hidden = view.ios == null ? view : view.ios;
+    TestFairy.hideView(hidden);
   }
 
   public setServerEndpoint(endpoint: string): void {
-	  TestFairy.setServerEndpoint(endpoint);
+    TestFairy.setServerEndpoint(endpoint);
   }
 
   public sendUserFeedback(feedback: string): void {
-	  TestFairy.sendUserFeedback(feedback);
+    TestFairy.sendUserFeedback(feedback);
   }
 
   public pushFeedbackController(): void {
-	  TestFairy.pushFeedbackController();
+    TestFairy.pushFeedbackController();
   }
 
   public addEvent(name: string): void {
-  	TestFairy.checkpoint(name);
+    TestFairy.checkpoint(name);
   }
 
   public setScreenName(name: string): void {
-  	TestFairy.setScreenName(name);
+    TestFairy.setScreenName(name);
   }
 
   public resume(): void {
-  	TestFairy.resume();
+    TestFairy.resume();
   }
 
   public pause(): void {
-	  TestFairy.pause();
+    TestFairy.pause();
   }
 
   public stop(): void {
-	  TestFairy.stop();
+    TestFairy.stop();
   }
 
   public setAttribute(key: string, value: string): boolean {
-	  return TestFairy.setAttributeWithValue(key, value);
+    return TestFairy.setAttributeWithValue(key, value);
   }
 
   public setUserId(userId: string): void {
-	  TestFairy.setUserId(userId);
+    TestFairy.setUserId(userId);
   }
 
   public log(message: string): void  {
     TestFairy.log(message);
   }
 
-	public enableCrashHandler(): void {
-		TestFairy.enableCrashHandler();
-	}
+  public enableCrashHandler(): void {
+    TestFairy.enableCrashHandler();
+  }
 
-	public disableCrashHandler(): void {
-		TestFairy.disableCrashHandler();
-	}
+  public disableCrashHandler(): void {
+    TestFairy.disableCrashHandler();
+  }
 
-	public enableMetric(metric: string): void {
-		TestFairy.enableMetric();
-	}
+  public enableMetric(metric: string): void {
+    TestFairy.enableMetric();
+  }
 
-	public disableMetric(metric: string): void {
-		TestFairy.disableMetric();
-	}
+  public disableMetric(metric: string): void {
+    TestFairy.disableMetric();
+  }
 
-	public enableVideo(policy: string, quality: string, framesPerSecond: number): void {
-		TestFairy.enableVideo();
-	}
+  public enableVideo(policy: string, quality: string, framesPerSecond: number): void {
+    TestFairy.enableVideo();
+  }
 
-	public disableVideo(): void {
-		TestFairy.disableVideo();
-	}
+  public disableVideo(): void {
+    TestFairy.disableVideo();
+  }
 
-	public enableFeedbackForm(method: string): void {
-		TestFairy.enableFeedbackForm();
-	}
+  public enableFeedbackForm(method: string): void {
+    TestFairy.enableFeedbackForm();
+  }
 
-	public disableFeedbackForm(): void {
-		TestFairy.disableFeedbackForm();
-	}
+  public disableFeedbackForm(): void {
+    TestFairy.disableFeedbackForm();
+  }
 
-	public setMaxSessionLength(seconds: number): void {
-		TestFairy.setMaxSessionLength(seconds);
-	}
+  public setMaxSessionLength(seconds: number): void {
+    TestFairy.setMaxSessionLength(seconds);
+  }
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyIos);
