@@ -1,4 +1,6 @@
 language: objective-c
+install: true
+script: true
 before_deploy:
   - npm install -g yarn
   - brew install carthage
