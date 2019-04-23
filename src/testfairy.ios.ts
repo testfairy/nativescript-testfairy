@@ -103,7 +103,7 @@ class TestFairyIos implements TestFairyApi {
 
 	public logException(error: Error): void {
 		let nsError = NSError.errorWithDomain("com.testfairy.react-native", -1, {NSLocalizedDescriptionKey: error.message});
-		TestFairy.logError(nsError, error.trace.split("\n")];
+		TestFairy.logError(nsError, error.trace.split("\n"));
 	}
 }
 
