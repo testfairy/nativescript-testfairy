@@ -100,6 +100,11 @@ class TestFairyIos implements TestFairyApi {
   public setMaxSessionLength(seconds: number): void {
     TestFairy.setMaxSessionLength(seconds);
   }
+
+	public logException(error: Error): void {
+		let nsError = NSError.errorWithDomain("com.testfairy.react-native", -1, {NSLocalizedDescriptionKey: error.message});
+		TestFairy.logError(nsError, error.trace.split("\n")];
+	}
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyIos);

@@ -23,5 +23,6 @@ export interface TestFairyApi {
     enableFeedbackForm(method: string): void;
     disableFeedbackForm(): void;
     setMaxSessionLength(seconds: number): any;
+    logException(error: Error): void;
 }
 export declare function getInstance(T: new () => TestFairyApi): TestFairyApi;

@@ -22,11 +22,11 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
   public setServerEndpoint(endpoint: string): void {
-  com.testfairy.TestFairy.setServerEndpoint(endpoint);
+    com.testfairy.TestFairy.setServerEndpoint(endpoint);
   }
 
   public sendUserFeedback(feedback: string): void {
-  com.testfairy.TestFairy.sendUserFeedback(feedback);
+    com.testfairy.TestFairy.sendUserFeedback(feedback);
   }
 
   public pushFeedbackController(): void {
@@ -34,23 +34,23 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
   public addEvent(name: string): void {
-  com.testfairy.TestFairy.addEvent(name);
+    com.testfairy.TestFairy.addEvent(name);
   }
 
   public setScreenName(name: string): void {
-  com.testfairy.TestFairy.setScreenName(name);
+    com.testfairy.TestFairy.setScreenName(name);
   }
 
   public resume(): void {
-  com.testfairy.TestFairy.resume();
+    com.testfairy.TestFairy.resume();
   }
 
   public pause(): void {
-  com.testfairy.TestFairy.pause();
+    com.testfairy.TestFairy.pause();
   }
 
   public stop(): void {
-  com.testfairy.TestFairy.stop();
+    com.testfairy.TestFairy.stop();
   }
 
   public setAttribute(key: string, value: string): boolean {
@@ -62,7 +62,7 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
   public log(message: string): void  {
-  com.testfairy.TestFairy.log("NativescriptTestFairy", message);
+    com.testfairy.TestFairy.log("NativescriptTestFairy", message);
   }
 
   public enableCrashHandler(): void {
@@ -100,6 +100,10 @@ class TestFairyAndroid implements TestFairyApi {
   public setMaxSessionLength(seconds: number): void {
     com.testfairy.TestFairy.setMaxSessionLength(seconds);
   }
+
+	public logException(error: Error): void {
+		com.testfairy.TestFairy.logThrowable(new java.lang.Exception(message));
+	}
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyAndroid);
