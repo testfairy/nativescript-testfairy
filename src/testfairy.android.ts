@@ -102,7 +102,7 @@ class TestFairyAndroid implements TestFairyApi {
   }
 
 	public logException(error: Error): void {
-		com.testfairy.TestFairy.logThrowable(new java.lang.Exception(message));
+		com.testfairy.TestFairy.logThrowable(new java.lang.Exception(error.message));
 	}
 }
 
