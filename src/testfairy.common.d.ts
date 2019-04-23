@@ -22,7 +22,7 @@ export interface TestFairyApi {
     disableVideo(): void;
     enableFeedbackForm(method: string): void;
     disableFeedbackForm(): void;
-    setMaxSessionLength(seconds: number): any;
+    setMaxSessionLength(seconds: number): void;
     logException(error: Error): void;
 }
 export declare function getInstance(T: new () => TestFairyApi): TestFairyApi;

@@ -197,7 +197,14 @@ export interface TestFairyApi {
    * Time is rounded to the nearest minute.
    * Must be called before begin.
    */
-  setMaxSessionLength(seconds: number);
+  setMaxSessionLength(seconds: number): void;
+
+	/**
+	 * Send an exception to TestFairy.
+	 * Note, this function is limited to 5 errors.
+	 * @param error Error
+	 */
+	logException(error: Error): void;
 }
 
 export function getInstance(T: new () => TestFairyApi): TestFairyApi {

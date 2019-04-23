@@ -101,10 +101,13 @@ class TestFairyIos implements TestFairyApi {
     TestFairy.setMaxSessionLength(seconds);
   }
 
-	public logException(error: Error): void {
-		let nsError = new NSError("com.testfairy.react-native", -1, {NSLocalizedDescriptionKey: error.message});
-		TestFairy.logError(nsError);
-	}
+  public logException(error: Error): void {
+    var userInfo = NSMutableDictionary.alloc<string, any>().init();
+    userInfo.setObjectForKey(error.message, NSLocalizedDescriptionKey);
+
+    let nsError = NSError.errorWithDomainCodeUserInfo("com.testfairy.nativescript", -1, userInfo);
+    TestFairy.logError(nsError);
+  }
 }
 
 export const TestFairySDK: TestFairyApi = getInstance(TestFairyIos);
