@@ -28,7 +28,6 @@ before_script:
 script:
     - cd src && npm i && npm run tsc && cd ../demo
     - travis_wait travis_retry tns build android
-    - cd src && npm i && npm run tsc && cd ../demo
     - travis_wait travis_retry tns build ios
 
 before_deploy:
