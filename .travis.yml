@@ -1,46 +1,40 @@
 language: objective-c
-
 before_install:
-    - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
-    - unzip android-sdk_r24.4.1-macosx.zip
-    - export ANDROID_HOME=$PWD/android-sdk-macosx
-    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-    - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-    - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
-    - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
-    - nvm install stable
-    - nvm use stable
-    - sudo pip install --upgrade pip
-    - sudo pip install six
-
+- wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
+- unzip android-sdk_r24.4.1-macosx.zip
+- export ANDROID_HOME=$PWD/android-sdk-macosx
+- export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+- echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+- echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
+- echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force
+  > /dev/null
+- nvm install stable
+- nvm use stable
+- sudo pip install --upgrade pip
+- sudo pip install six
 install:
-    - brew install carthage
-    - echo no | npm install -g nativescript
-    - tns usage-reporting disable
-    - tns error-reporting disable
-
+- brew install carthage
+- echo no | npm install -g nativescript
+- tns usage-reporting disable
+- tns error-reporting disable
 before_script:
-    - carthage update
-    - rm -rf src/platforms/ios/TestFairySDK.*
-    - cp -R Carthage/Build/iOS/TestFairySDK.framework* src/platforms/ios/.
-    - rm -rf Carthage
-
+- carthage update
+- rm -rf src/platforms/ios/TestFairySDK.*
+- cp -R Carthage/Build/iOS/TestFairySDK.framework* src/platforms/ios/.
+- rm -rf Carthage
 script:
-    - cd src && npm i && npm run tsc && cd ../demo
-    - travis_wait travis_retry tns build android
-    - travis_wait travis_retry tns build ios
-
+- cd src && npm i && npm run tsc && cd ../demo
+- travis_wait travis_retry tns build android
+- travis_wait travis_retry tns build ios
 before_deploy:
-  - cd publish
-  - ./pack.sh
-  - cd package
-
+- cd publish
+- "./pack.sh"
+- cd package
 deploy:
   provider: npm
   email: support@testfairy.com
   api_key:
-    secure: kFSTKPnOBUXUCSBmp+cA0s6VLLUVi/3vH7qdGBw3aFwIPJavHuXP+ZrJsd8VAdCfzs4t5Zm5njS41eSPBm9ezZoXaBlQO2pO5WDS1rfp0zzJsbWDJHNl3yHiQP031VyoUQcjVLaxXCxL9XvTTTi8uAQRf3yYq3TH2r5H7Uy7aTvEP6J4lSVIuTn5/SswqFmtHqlhDOR2DevNnHVV9tdz//6L7VlecyaM2d/bbzyY8/U9Z5rjv0yt71vxzX/d3KBhucFv65pDgHk+oT40YPJd2xlKwdrmWZBGmi90vlI9f65gLHwwa99z+NN3b7B1cmK8dEHcQ4s+KzexyM+KVGY0jCc7TbSN7ibNIxW4EMB0/mmmXxPpl74gN94q760epIygI5JtANU5r+qaC/jt6v3BCJH9o2JeSX3skXFad/UU25kIUIFRrH30TML6QvJutGRe+8dbQ+sn3ZkZbliCZyQ6ql0TJK6wvse4BgJgJpX4PetKhGtGVHckiOVJxCvfMRzG83Q0dbLSl6d6u1kQCUuUB0UMAvSue4OlzzSN+wWhLtkE6mr4NQJTgR8F1rsyMlSTHy0OSGveR2Rv+CEUtIJhFB/6Yk/GHdvfK6BXjCbuBGb9u2sSj9kUeX0eXzbrz7wIrRqaW9IBISeqVc+FOKfCovzpJA6+xC+4J+Nyqj8FbCQ=
-  skip_cleanup: true
+    secure: K3pG4EXIFT3172mq1EUIc15Cv2ol6g7b7bUyyIjoxHvKMSKtTZtqy+8ZzOX0iee6RQGqBu8HxMw19Z4COcQUeR9udB/+gqKRY9FSkVCVbzYCQz/sJ/pgwOXDL8D3L+EDRf/deo3BxXjOZQrVAzKLN+Wvm+lL65d1QZaIt+Ct0TseAToSw44PwayokKgfvhM0YQUPblc9wjEmbEWuhxvqCjyESp+lT//hY8RfAd1oMw8FT7XbDlvEHUYZzUME/BXzncfq3jry0cM15d/Ngj10Do/9msCyrLxSLUe+ldYlA4Mg4jcoFerfFoP4IvYWGp3+stHOo0sdbqb5cUwomda6nsZaZtr7qVnIJQ2eykNTOdOFhhTlVm47NL1x4KTxIqq99tUkecWeqAq67QxsDig4PMSh5W4kEoYLnX5Beaf2Gc8d2/p7EgSV35ZDbypupgrDEmE+r+LHhf6+gGQSoD184eODPhRFXx5q+Pdp6e4VMhcBvdGFgHKXFwW4qdWCRgo73THSOt3IbEoWC1d9wsVcDRRDzG2Y0TiQ3jOamDDFcStgcDd1HwI/K/+Sj7C27aswoV3STCkHJwrrthalTe9hrtJybRAUPnrHlfPx3+uYc9G7qGPdAb3HZxXGDq+oWkuWrbyq87HNwSi+gnLQMKRDqgt20WcqT2ZoSjJDdBf1SmQ=
   on:
     tags: true
     repo: testfairy/nativescript-testfairy
