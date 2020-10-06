@@ -1,12 +1,12 @@
 # TestFairy plugin for Nativescript
 
 For class reference, installation and more information, please visit 
-[Nativescript integration document](http://docs.testfairy.com/Platforms/Nativescript.html) on TestFairy.
+[Nativescript integration document](https://docs.testfairy.com/Platforms/Nativescript.html) on TestFairy.
 
 License
 =======
 
-    Copyright 2019 TestFairy.
+    Copyright 2020 TestFairy.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
