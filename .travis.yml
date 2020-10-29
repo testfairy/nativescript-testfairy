@@ -8,13 +8,13 @@ before_install:
 - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
 - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force
   > /dev/null
-- nvm install stable
-- nvm use stable
+- nvm install v12.0.0
+- nvm use v12.0.0
 - sudo pip install --upgrade pip
 - sudo pip install six
 install:
 - brew install carthage
-- echo no | npm install -g nativescript
+- echo no | npm install -g nativescript@5.3.3
 - tns usage-reporting disable
 - tns error-reporting disable
 before_script:
