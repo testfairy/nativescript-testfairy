@@ -28,10 +28,10 @@ before_script:
 - cp -R Carthage/Build/iOS/TestFairy.framework* src/platforms/ios/.
 - rm -rf Carthage
 script:
-# - cd src && npm i && npm run tsc && cd ../demo
+- cd src && npm i && npm run tsc && cd ../demo
 # - travis_wait travis_retry tns build android
 # - travis_wait travis_retry tns build ios
-- cd publish
+- cd ../publish
 - sh pack.sh
 before_deploy:
 - cd publish
