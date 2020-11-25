@@ -32,10 +32,10 @@ script:
 # - travis_wait travis_retry tns build android
 # - travis_wait travis_retry tns build ios
 - cd publish
-- "./pack.sh"
+- sh pack.sh
 before_deploy:
 - cd publish
-- "./pack.sh"
+- sh pack.sh
 - cd package
 deploy:
   provider: npm
