@@ -31,7 +31,6 @@ script:
 - travis_wait travis_retry tns build ios
 - travis_wait travis_retry tns build android
 before_deploy:
-- pwd && ls -lsrt
 - cd ../publish
 - sh pack.sh
 - cd package
