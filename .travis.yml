@@ -1,5 +1,10 @@
 language: objective-c
+osx_image: xcode11.2
 before_install:
+- brew tap AdoptOpenJDK/openjdk
+- brew cask install adoptopenjdk8
+- ls /Library/Java/JavaVirtualMachines/
+- export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
 - export ANDROID_HOME=$PWD/android-sdk-macosx
@@ -14,7 +19,7 @@ before_install:
 - sudo pip install six
 install:
 - brew install carthage
-- echo no | npm install -g nativescript@5.3.3
+- echo no | npm install -g nativescript@7.0.11
 - tns usage-reporting disable
 - tns error-reporting disable
 before_script:
@@ -24,11 +29,11 @@ before_script:
 - rm -rf Carthage
 script:
 - cd src && npm i && npm run tsc && cd ../demo
-- travis_wait travis_retry tns build android
 - travis_wait travis_retry tns build ios
+- travis_wait travis_retry tns build android
 before_deploy:
 - cd publish
-- "./pack.sh"
+- sh pack.sh
 - cd package
 deploy:
   provider: npm

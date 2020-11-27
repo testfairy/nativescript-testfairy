@@ -1,6 +1,5 @@
-import { Observable } from 'tns-core-modules/data/observable';
+import { Observable } from '@nativescript/core';
 import { TestFairySDK } from 'nativescript-testfairy';
-import * as application from 'tns-core-modules/application';
 
 class DataItem {
     constructor(public name: string) { }
