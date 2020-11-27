@@ -1,51 +1,39 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import { TestFairySDK } from 'nativescript-testfairy';
-import * as application from 'tns-core-modules/application';
-
-class DataItem {
-    constructor(public name: string) { }
-}
+import { Observable } from '@nativescript/core';
 
 export class HelloWorldModel extends Observable {
-  public myItems: Array<DataItem>;
+    private _counter: number;
+    private _message: string;
 
-  constructor() {
-    super();
-    this.myItems = [
-    	new DataItem("begin"),
-    	new DataItem("log"),
-    	new DataItem("setAttribute"),
-    	new DataItem("setUserId"),
-    	new DataItem("pause"),
-    	new DataItem("resume"),
-    	new DataItem("stop"),
-    	new DataItem("hideView"),
-    ];
-  }
+    constructor() {
+        super();
 
-  public onTap(args) {
-	var itemIndex = args.index;
-	console.log("index " + itemIndex);
+        // Initialize default values.
+        this._counter = 42;
+        this.updateMessage();
+    }
 
-	if (itemIndex == 0) {
-		// TestFairySDK.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
-	} else if (itemIndex == 1) {
-		TestFairySDK.log("new message");
-	} else if (itemIndex == 2) {
-		TestFairySDK.setAttribute("attribute", "new attribute");
-	} else if (itemIndex == 3) {
-		TestFairySDK.setUserId("support@testfairy.com");
-	} else if (itemIndex == 4) {
-		TestFairySDK.pause();
-	} else if (itemIndex == 5) {
-		TestFairySDK.resume();
-	} else if (itemIndex == 6) {
-		TestFairySDK.stop();
-	} else if (itemIndex == 7) {
-		var page = args.object;
-  		TestFairySDK.hideView(page);
-	} else {
-		console.log("unsupported index " + itemIndex);
-	}
-  }
+    get message(): string {
+        return this._message;
+    }
+
+    set message(value: string) {
+        if (this._message !== value) {
+            this._message = value;
+            this.notifyPropertyChange('message', value);
+        }
+    }
+
+    onTap() {
+        this._counter--;
+        this.updateMessage();
+    }
+
+    private updateMessage() {
+        if (this._counter <= 0) {
+            this.message =
+                'Hoorraaay! You unlocked the NativeScript clicker achievement!';
+        } else {
+            this.message = `${this._counter} taps left`;
+        }
+    }
 }

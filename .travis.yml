@@ -29,10 +29,10 @@ before_script:
 - rm -rf Carthage
 script:
 - cd src && npm i && npm run tsc && cd ../demo
-# - travis_wait travis_retry tns build android
-# - travis_wait travis_retry tns build ios
-- cd ../publish
-- sh pack.sh
+- travis_wait travis_retry tns build ios
+- travis_wait travis_retry tns build android
+# - cd ../publish
+# - sh pack.sh
 before_deploy:
 - cd publish
 - sh pack.sh
