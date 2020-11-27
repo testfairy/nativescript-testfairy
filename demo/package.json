@@ -1,5 +1,5 @@
 {
-  "name": "@nativescript/template-hello-world-ts",
+   "name": "@nativescript/template-hello-world-ts",
   "main": "app.js",
   "version": "7.0.5",
   "author": "NativeScript Team <oss@nativescript.org>",
