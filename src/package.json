@@ -45,7 +45,7 @@
     "homepage": "https://www.testfairy.com",
     "readmeFilename": "README.md",
     "peerDependencies": {
-        "tns-core-modules": "^3.0.0"
+        "tns-core-modules": "^6.0.0"
     },
     "devDependencies": {
         "tns-core-modules": "^6.0.0",

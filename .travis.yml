@@ -37,6 +37,7 @@ before_deploy:
 deploy:
   provider: npm
   email: support@testfairy.com
+  skip_cleanup: true
   api_key:
     secure: K3pG4EXIFT3172mq1EUIc15Cv2ol6g7b7bUyyIjoxHvKMSKtTZtqy+8ZzOX0iee6RQGqBu8HxMw19Z4COcQUeR9udB/+gqKRY9FSkVCVbzYCQz/sJ/pgwOXDL8D3L+EDRf/deo3BxXjOZQrVAzKLN+Wvm+lL65d1QZaIt+Ct0TseAToSw44PwayokKgfvhM0YQUPblc9wjEmbEWuhxvqCjyESp+lT//hY8RfAd1oMw8FT7XbDlvEHUYZzUME/BXzncfq3jry0cM15d/Ngj10Do/9msCyrLxSLUe+ldYlA4Mg4jcoFerfFoP4IvYWGp3+stHOo0sdbqb5cUwomda6nsZaZtr7qVnIJQ2eykNTOdOFhhTlVm47NL1x4KTxIqq99tUkecWeqAq67QxsDig4PMSh5W4kEoYLnX5Beaf2Gc8d2/p7EgSV35ZDbypupgrDEmE+r+LHhf6+gGQSoD184eODPhRFXx5q+Pdp6e4VMhcBvdGFgHKXFwW4qdWCRgo73THSOt3IbEoWC1d9wsVcDRRDzG2Y0TiQ3jOamDDFcStgcDd1HwI/K/+Sj7C27aswoV3STCkHJwrrthalTe9hrtJybRAUPnrHlfPx3+uYc9G7qGPdAb3HZxXGDq+oWkuWrbyq87HNwSi+gnLQMKRDqgt20WcqT2ZoSjJDdBf1SmQ=
   on:
