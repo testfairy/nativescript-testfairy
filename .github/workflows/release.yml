@@ -25,11 +25,11 @@ jobs:
         rm -rf src/platforms/ios/TestFairySDK.*
         cp -R Carthage/Build/iOS/TestFairy.framework* src/platforms/ios/.
         rm -rf Carthage
-      - name: Release Nativescript to npm
-        run: |
-          cd ../publish
-          sh pack.sh
-          cd package
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Release Nativescript to npm
+      run: |
+        cd ../publish
+        sh pack.sh
+        cd package
+        npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
