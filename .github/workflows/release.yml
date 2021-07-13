@@ -1,0 +1,18 @@
+name: Release TestFairy Nativescript SDK
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '15.12.0'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Release Nativescript to npm
+        run: |
+          echo "Done"

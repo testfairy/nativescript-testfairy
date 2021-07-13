@@ -1,0 +1,53 @@
+name: Build TestFairy Nativescript SDK
+on: 
+  push:
+  schedule:
+  - cron:  '0 2 * * *'
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '15.12.0'
+    - name: Install Dependencies
+      run: |
+        brew install carthage
+        npm install -g nativescript@7.0.11
+        tns usage-reporting disable
+        tns error-reporting disable
+    - name: Update iOS SDK
+      run: |
+        carthage update
+        rm -rf src/platforms/ios/TestFairySDK.*
+        cp -R Carthage/Build/iOS/TestFairy.framework* src/platforms/ios/.
+        rm -rf Carthage
+    - name: Build sample project for iOS with TestFairy
+      run:  |
+        cd src && npm i && npm run tsc && cd ../demo
+        tns build ios
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '15.12.0'
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+    - name: Install Dependencies
+      run: |
+        npm install -g nativescript@7.0.11
+        tns usage-reporting disable
+        tns error-reporting disable
+    - name: Build sample project for Android with TestFairy
+      run: |
+        cd src && npm i && npm run tsc && cd ../demo
+        tns build ios
