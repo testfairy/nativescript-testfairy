@@ -21,6 +21,12 @@ jobs:
         tns error-reporting disable
     - name: Update iOS SDK
       run: |
+        ANDROID_SDK_VERSION=1.12.9
+        curl -s -L https://maven.testfairy.com/com/testfairy/testfairy-android-sdk/${ANDROID_SDK_VERSION}/testfairy-android-sdk-${ANDROID_SDK_VERSION}.aar -o src/platforms/android/testfairy-android-sdk.aar
+        IOS_VERSION=1.29.0
+        echo "github \"testfairy/testfairy-carthage\" == ${IOS_VERSION}" > Cartfile
+        echo ${GITHUB_REF##*/} > RELEASE_TAG
+        sed -i '' "s/\"version\":.*/\"version\":\"$(cat RELEASE_TAG)"\",/g" package.json
         carthage update
         rm -rf src/platforms/ios/TestFairySDK.*
         cp -R Carthage/Build/iOS/TestFairy.framework* src/platforms/ios/.
