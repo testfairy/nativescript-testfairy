@@ -27,7 +27,7 @@ jobs:
         echo "github \"testfairy/testfairy-carthage\" == ${IOS_VERSION}" > Cartfile
         cat Cartfile
         echo ${GITHUB_REF##*/} > RELEASE_TAG
-        sed -i '' "s/\"version\":.*/\"version\":\"$(cat RELEASE_TAG)"\",/g" package.json
+        sed -i '' "s/\"version\":.*/\"version\":\"$(cat RELEASE_TAG)\",/g" src/package.json
         carthage update
         rm -rf src/platforms/ios/TestFairySDK.*
         cp -R Carthage/Build/iOS/TestFairy.framework* src/platforms/ios/.
