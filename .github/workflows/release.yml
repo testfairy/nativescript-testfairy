@@ -19,12 +19,13 @@ jobs:
         npm install -g nativescript@7.0.11
         tns usage-reporting disable
         tns error-reporting disable
-    - name: Update iOS SDK
+    - name: Update Native SDK
       run: |
         ANDROID_SDK_VERSION=1.12.12
-        curl -s -L https://maven.testfairy.com/com/testfairy/testfairy-android-sdk/${ANDROID_SDK_VERSION}/testfairy-android-sdk-${ANDROID_SDK_VERSION}.aar -o src/platforms/android/testfairy-android-sdk.aar
         IOS_VERSION=1.29.2
+        curl -s -L https://maven.testfairy.com/com/testfairy/testfairy-android-sdk/${ANDROID_SDK_VERSION}/testfairy-android-sdk-${ANDROID_SDK_VERSION}.aar -o src/platforms/android/testfairy-android-sdk.aar
         echo "github \"testfairy/testfairy-carthage\" == ${IOS_VERSION}" > Cartfile
+        cat Cartfile
         echo ${GITHUB_REF##*/} > RELEASE_TAG
         sed -i '' "s/\"version\":.*/\"version\":\"$(cat RELEASE_TAG)"\",/g" package.json
         carthage update
