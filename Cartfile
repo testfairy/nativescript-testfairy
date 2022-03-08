@@ -1,1 +1,1 @@
-github "testfairy/testfairy-carthage" == 1.29.6
+binary "https://app.testfairy.com/sdk/ios/carthage.json" == 1.29.6
