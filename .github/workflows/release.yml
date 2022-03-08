@@ -21,8 +21,8 @@ jobs:
         tns error-reporting disable
     - name: Update Native SDK
       run: |
-        ANDROID_SDK_VERSION=1.12.12
-        IOS_VERSION=1.29.2
+        ANDROID_SDK_VERSION=1.12.19
+        IOS_VERSION=1.29.6
         curl -s -L https://maven.testfairy.com/com/testfairy/testfairy-android-sdk/${ANDROID_SDK_VERSION}/testfairy-android-sdk-${ANDROID_SDK_VERSION}.aar -o src/platforms/android/testfairy-android-sdk.aar
         echo "github \"testfairy/testfairy-carthage\" == ${IOS_VERSION}" > Cartfile
         cat Cartfile
