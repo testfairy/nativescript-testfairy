@@ -24,7 +24,7 @@ jobs:
         ANDROID_SDK_VERSION=1.12.19
         IOS_VERSION=1.29.6
         curl -s -L https://maven.testfairy.com/com/testfairy/testfairy-android-sdk/${ANDROID_SDK_VERSION}/testfairy-android-sdk-${ANDROID_SDK_VERSION}.aar -o src/platforms/android/testfairy-android-sdk.aar
-        echo "github \"testfairy/testfairy-carthage\" == ${IOS_VERSION}" > Cartfile
+        echo "binary \"https://app.testfairy.com/sdk/ios/carthage.json\" == ${IOS_VERSION}" > Cartfile
         cat Cartfile
         echo ${GITHUB_REF##*/} > RELEASE_TAG
         sed -i '' "s/\"version\":.*/\"version\":\"$(cat RELEASE_TAG)\",/g" src/package.json
