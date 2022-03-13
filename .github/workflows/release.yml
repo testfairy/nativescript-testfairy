@@ -36,9 +36,8 @@ jobs:
       run: |
         cd publish
         sh pack.sh
-        ls -lsrta
         cd package
         ls -lsrta
-        npm publish
+        npm publish *.tgz
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
